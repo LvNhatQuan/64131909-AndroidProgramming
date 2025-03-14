@@ -14,18 +14,18 @@
         android:layout_marginTop="20dp">
 
         <TextView
+            android:id="@+id/amazonName"
             android:layout_width="0dp"
             android:layout_height="42dp"
-            android:id="@+id/amazonName"
-            android:text="Amazon"
-            android:textSize="40sp"
-            android:textColor="@color/lavender"
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/poppins_semibold"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="Amazon"
+            android:textColor="@color/lavender"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="0dp"
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:id="@+id/amazonImage"
-            android:src="@drawable/amazon"
+            android:src="@drawable/img"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
@@ -90,7 +90,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/clothingImage"
-                        android:src="@drawable/clothing"
+                        android:src="@drawable/img_1"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
@@ -125,7 +125,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/elecImage"
-                        android:src="@drawable/electronics"
+                        android:src="@drawable/img_2"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
@@ -173,7 +173,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/homeImage"
-                        android:src="@drawable/home"
+                        android:src="@drawable/img_3"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
@@ -208,7 +208,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/beautyImage"
-                        android:src="@drawable/beauty"
+                        android:src="@drawable/img_4"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
@@ -256,7 +256,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/pharmImage"
-                        android:src="@drawable/pharmacy"
+                        android:src="@drawable/img_5"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
@@ -291,7 +291,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:id="@+id/grocImage"
-                        android:src="@drawable/groceries"
+                        android:src="@drawable/img_6"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"/>
 
