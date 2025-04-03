@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/darker_gray"
+    android:padding="16dp"
+    tools:context=".ActivityCau1">
+
+    <!-- Form container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="24dp"
+        android:elevation="8dp"
+        android:outlineProvider="background">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tính toán cơ bản"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Input a -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Số a:"
+                android:textColor="@android:color/black"/>
+
+            <EditText
+                android:id="@+id/edtA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Nhập số a"
+                android:inputType="numberDecimal|numberSigned"
+                android:padding="12dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Input b -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Số b:"
+                android:textColor="@android:color/black"/>
+
+            <EditText
+                android:id="@+id/edtB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Nhập số b"
+                android:inputType="numberDecimal|numberSigned"
+                android:padding="12dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Calculate button -->
+        <Button
+            android:id="@+id/btnCong"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Tính tổng a + b"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@drawable/button_bg"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Result -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kết quả:"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/edtKQ"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/edittext_result_bg"
+                android:hint="Chưa có kết quả"
+                android:inputType="none"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:enabled="false"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
