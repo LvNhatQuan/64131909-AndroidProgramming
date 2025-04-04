@@ -1,10 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityChucnang1">
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFF3E0"
+    android:gravity="center"
+    android:id="@+id/main"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Tiêu đề -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz"
+        android:textSize="28sp"
+        android:textColor="#BF360C"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Thông tin chiến dịch -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mốc thời gian Chiến dịch"
+        android:textSize="18sp"
+        android:textColor="#5D4037"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HỒ CHÍ MINH - Toàn thắng"
+        android:textSize="22sp"
+        android:textColor="#D84315"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Ô nhập tháng/năm -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tháng"
+            android:textSize="16sp"
+            android:textColor="#5D4037"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/monthInput"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_bg"
+            android:textSize="16sp"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm"
+            android:textSize="16sp"
+            android:textColor="#5D4037"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/yearInput"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_bg"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Nút kiểm tra Đúng/Sai -->
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Kiểm tra Đúng/Sai"
+        android:textSize="16sp"
+        android:backgroundTint="#5D4037"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Khu vực hiển thị kết quả -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Nhập tháng/năm và nhấn kiểm tra"
+        android:textSize="18sp"
+        android:textColor="#BF360C"
+        android:gravity="center"
+        android:background="#FFCCBC"
+        android:padding="10dp"/>
+
+</LinearLayout>
