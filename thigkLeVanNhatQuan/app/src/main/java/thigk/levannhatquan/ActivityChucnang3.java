@@ -1,24 +1,37 @@
 package thigk.levannhatquan;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 
-public class ActivityChucnang3 extends AppCompatActivity {
+public class ActivityCau3 extends AppCompatActivity {
+    private LanguageAdapter languageAdapter;
+    private ArrayList<Language> languageList;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_chucnang3);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // Khởi tạo dữ liệu
+        languageList = getLanguageData();
+
+        // Thiết lập RecyclerView
+        recyclerView = findViewById(R.id.RecycleListView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        languageAdapter = new LanguageAdapter(this, languageList);
+        recyclerView.setAdapter(languageAdapter);
+    }
+
+    private ArrayList<Cachmang> getLanguageData() {
+        ArrayList<Cachmang> languages = new ArrayList<>();
+        languages.add(new Cachmang("anh1", "Tiếng Anh", "Ngôn ngữ phổ biến nhất thế giới"));
+        languages.add(new Cachmang("anh2", "Tiếng Nhật", "Ngôn ngữ của đất nước mặt trời mọc"));
+        languages.add(new Cachmang("anh3", "Tiếng Việt", "Ngôn ngữ quốc gia Việt Nam"));
+        return languages;
     }
 }
