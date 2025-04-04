@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class ActivityCau3 extends AppCompatActivity {
+public class ActivityChucnang3 extends AppCompatActivity {
     private LanguageAdapter languageAdapter;
     private ArrayList<Language> languageList;
     private RecyclerView recyclerView;
@@ -27,11 +27,11 @@ public class ActivityCau3 extends AppCompatActivity {
         recyclerView.setAdapter(languageAdapter);
     }
 
-    private ArrayList<Cachmang> getLanguageData() {
-        ArrayList<Cachmang> languages = new ArrayList<>();
-        languages.add(new Cachmang("anh1", "Tiếng Anh", "Ngôn ngữ phổ biến nhất thế giới"));
-        languages.add(new Cachmang("anh2", "Tiếng Nhật", "Ngôn ngữ của đất nước mặt trời mọc"));
-        languages.add(new Cachmang("anh3", "Tiếng Việt", "Ngôn ngữ quốc gia Việt Nam"));
+    private ArrayList<Language> getLanguageData() {
+        ArrayList<Language> languages = new ArrayList<>();
+        languages.add(new Language("anh1", "Mùa xuân trên thành phố HCM", "Mùa xuân"));
+        languages.add(new Language("anh2", "Bài ca thống nhất", "Thống nhất"));
+        languages.add(new Language("anh3", "Đất nước trọn niềm vui", "Niềm vui"));
         return languages;
     }
 }

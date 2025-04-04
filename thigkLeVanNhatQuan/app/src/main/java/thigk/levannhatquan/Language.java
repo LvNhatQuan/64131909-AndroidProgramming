@@ -1,11 +1,11 @@
 package thigk.levannhatquan;
 
-public class Cachmang {
+public class Language {
     private String imageName;
     private String name;
     private String description;
 
-    public Cachmang(String imageName, String name, String description) {
+    public Language(String imageName, String name, String description) {
         this.imageName = imageName;
         this.name = name;
         this.description = description;

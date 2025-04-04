@@ -22,11 +22,10 @@ public class ActivityChucnang2 extends AppCompatActivity {
         // Tạo dữ liệu cho ListView
         ArrayList<String> nguonDL = new ArrayList<String>();
         nguonDL.add("Tiến về Sài Gòn");
-        nguonDL.add(" phóng Miền nam");
+        nguonDL.add("Giai phóng Miền nam");
         nguonDL.add("Đất nước trọn niềm vui ");
-        nguonDL.add("Tiếng Trung");
         nguonDL.add("Bài ca thống nhất");
-        nguonDL.add("Mùa xuân trên thành phố HCm");
+        nguonDL.add("Mùa xuân trên thành phố HCM");
 
         ListView listViewNN = findViewById(R.id.lvIndexLanguage);
 
