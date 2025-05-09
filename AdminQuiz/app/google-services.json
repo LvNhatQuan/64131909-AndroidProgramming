@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "830792849993",
+    "project_id": "adminquiz-b23e7",
+    "storage_bucket": "adminquiz-b23e7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830792849993:android:847f7fa0c3233c204ffd98",
+        "android_client_info": {
+          "package_name": "nhatquan.ntu.adminquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkyfhN32Vew9y1Tgtrsf-zTBFqv5wC0a8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
