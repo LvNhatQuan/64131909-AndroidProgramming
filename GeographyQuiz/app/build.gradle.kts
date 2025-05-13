@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "xuanbao.edu.geographyquiz"
+    namespace = "nhatquan.ntu.geographyquiz"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "xuanbao.edu.geographyquiz"
+        applicationId = "nhatquan.ntu.geographyquiz"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
