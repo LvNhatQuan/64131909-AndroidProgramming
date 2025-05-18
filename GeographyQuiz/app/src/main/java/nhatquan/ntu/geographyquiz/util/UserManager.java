@@ -1,62 +1,51 @@
 package nhatquan.ntu.geographyquiz.util;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.ArrayList;
-import java.util.List;
+import nhatquan.ntu.geographyquiz.database.UserDatabaseHelper;
 
 public class UserManager {
-    private static final String PREFS_NAME = "user_prefs";
-    private static final String KEY_USERS = "users";
-
-    private SharedPreferences prefs;
-
+    private SQLiteDatabase db;
     public UserManager(Context context) {
-        prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        UserDatabaseHelper helper = new UserDatabaseHelper(context);
+        db = helper.getWritableDatabase();
     }
 
-    public void addUser(User user) {
-        List<User> users = getAllUsers();
-        users.add(user);
-        saveUsers(users);
+    public boolean addUser(User user) {
+        if (userExists(user.getUsername())) return false;
+
+        ContentValues values = new ContentValues();
+        values.put("username", user.getUsername());
+        values.put("password", user.getPassword());
+        values.put("email", user.getEmail());
+        values.put("role", user.getRole());
+
+        long result = db.insert(UserDatabaseHelper.TABLE_NAME, null, values);
+        return result != -1;
     }
 
     public User getUserByUsername(String username) {
-        for (User user : getAllUsers()) {
-            if (user.getUsername().equals(username)) {
-                return user;
-            }
+        Cursor cursor = db.query(UserDatabaseHelper.TABLE_NAME,
+                null, "username=?", new String[]{username},
+                null, null, null);
+        if (cursor.moveToFirst()) {
+            User user = new User(
+                    cursor.getString(cursor.getColumnIndexOrThrow("username")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("password")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("email")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("role"))
+            );
+            cursor.close();
+            return user;
         }
+        cursor.close();
         return null;
     }
 
     public boolean userExists(String username) {
         return getUserByUsername(username) != null;
-    }
-
-    public List<User> getAllUsers() {
-        String json = prefs.getString(KEY_USERS, "[]");
-        List<User> users = new ArrayList<>();
-        try {
-            JSONArray arr = new JSONArray(json);
-            for (int i = 0; i < arr.length(); i++) {
-                users.add(User.fromJSON(arr.getString(i)));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return users;
-    }
-
-    private void saveUsers(List<User> users) {
-        JSONArray arr = new JSONArray();
-        for (User u : users) {
-            arr.put(u.toJSON());
-        }
-        prefs.edit().putString(KEY_USERS, arr.toString()).apply();
     }
 }

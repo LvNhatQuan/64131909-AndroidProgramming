@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
             UserManager userManager = new UserManager(this);
 
+            // Kiểm tra thông tin người dùng trong cơ sở dữ liệu
             if (username.equals("admin") && password.equals("admin") && email.equals("admin@gmail.com")) {
                 // Admin mặc định
                 saveLogin("admin", "admin");
@@ -61,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
-
     }
     private void saveLogin(String role, String username) {
         SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
