@@ -9,7 +9,7 @@
     android:padding="24dp"
     android:background="#FAFAFA"
     tools:context=".DeleteQuestionActivity">
-    
+
 
     <Spinner
         android:id="@+id/spinnerTopic"
