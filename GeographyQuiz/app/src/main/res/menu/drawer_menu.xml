@@ -12,6 +12,21 @@
     </group>
 
     <item
+        android:id="@+id/share"
+        android:title="Share"
+        android:icon="@drawable/baseline_share_24"/>
+
+    <item
+        android:id="@+id/rate"
+        android:title="Rate"
+        android:icon="@drawable/baseline_star_outline_24"/>
+
+    <item
+        android:id="@+id/privacy"
+        android:title="Privacy"
+        android:icon="@drawable/baseline_privacy_tip_24"/>
+
+    <item
         android:id="@+id/nav_logout"
         android:title="Đăng xuất"
         android:icon="@android:drawable/ic_lock_power_off" />
