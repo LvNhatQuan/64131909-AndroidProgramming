@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="nhatquan.ntu.geographyquiz">
+
+    <!-- Quyền truy cập đọc bộ nhớ ngoài, cần để mở gallery chọn ảnh -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,45 +15,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quiz"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+
+        <!-- Splash or launcher activity -->
+        <activity
+            android:name=".ScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Other activities -->
         <activity
             android:name=".ScreenActivity2"
             android:exported="true" />
-        <!-- SplashActivity as the launcher -->
-        <activity
-            android:name=".ScreenActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- Other activities -->
         <activity
             android:name=".DeleteQuestionActivity"
             android:exported="false" />
+
         <activity
             android:name=".SubTopicActivity"
             android:exported="false" />
+
         <activity
             android:name=".AddQuestionActivity"
             android:exported="false" />
+
         <activity
             android:name=".ResultActivity"
             android:exported="false" />
+
         <activity
             android:name=".QuizActivity"
             android:exported="false" />
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
-            android:exported="false" >
-        </activity> <!-- MainActivity -->
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>

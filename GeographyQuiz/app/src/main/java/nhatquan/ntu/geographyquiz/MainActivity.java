@@ -2,6 +2,7 @@ package nhatquan.ntu.geographyquiz;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,17 +31,21 @@ import nhatquan.ntu.geographyquiz.model.Topic;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_ADD_QUESTION = 1001;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     RecyclerView recyclerTopics;
     EditText etSearch;
 
-    List<Topic> topicList;        // Danh sách gốc
-    List<Topic> filteredList;     // Danh sách tìm kiếm
+    List<Topic> topicList;
+    List<Topic> filteredList;
     TopicAdapter adapter;
 
     String role;
+
+    QuizDatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Khởi tạo database và chèn câu hỏi mẫu nếu chưa có
-        QuizDatabaseHelper dbHelper = new QuizDatabaseHelper(this);
+        dbHelper = new QuizDatabaseHelper(this);
+
         if (dbHelper.getAllQuestions().isEmpty()) {
             dbHelper.insertSampleQuestions();
             Toast.makeText(this, "Đã nạp câu hỏi mẫu!", Toast.LENGTH_SHORT).show();
@@ -71,28 +76,36 @@ public class MainActivity extends AppCompatActivity {
         recyclerTopics = findViewById(R.id.recyclerTopics);
         etSearch = findViewById(R.id.etSearch);
 
-        // Set toolbar
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Set tên tài khoản trong header
         View headerView = navigationView.getHeaderView(0);
         TextView txtUserRole = headerView.findViewById(R.id.txtUserRole);
         String username = prefs.getString("username", "guest");
         txtUserRole.setText("Tài khoản: " + username);
 
-        // Phân quyền admin
         Menu navMenu = navigationView.getMenu();
         navMenu.setGroupVisible(R.id.adminGroup, "admin".equals(role));
 
-        // Xử lý sự kiện menu
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_add_question) {
-                startActivity(new Intent(this, AddQuestionActivity.class));
+            if (id == R.id.share) {
+                String shareBody = "Hye, I am Using best online quiz app" +
+                        "http://play.google.com/store/apps/details?id=" + getPackageName();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(intent);
+            } else if (id == R.id.rate) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+            } else if (id == R.id.privacy) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("Add Privacy Policy Link")));
+            } else if (id == R.id.nav_add_question) {
+                Intent intent = new Intent(this, AddQuestionActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_ADD_QUESTION);
             } else if (id == R.id.nav_delete_question) {
                 startActivity(new Intent(this, DeleteQuestionActivity.class));
             } else if (id == R.id.nav_logout) {
@@ -106,39 +119,54 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Tạo danh sách topic gốc
-        topicList = new ArrayList<>();
-        topicList.add(new Topic("Địa lý Việt Nam", R.drawable.vietnam));
-        topicList.add(new Topic("Châu Á", R.drawable.asia));
-        topicList.add(new Topic("Châu Âu", R.drawable.europe));
-        topicList.add(new Topic("Châu Mỹ", R.drawable.america));
-        topicList.add(new Topic("Châu Phi", R.drawable.africa));
+        // Load danh sách chủ đề từ database lần đầu
+        reloadTopicListFromDB();
 
-        // Khởi tạo filteredList ban đầu bằng toàn bộ topicList
-        filteredList = new ArrayList<>(topicList);
-
-        // Setup RecyclerView với filteredList
         recyclerTopics.setLayoutManager(new GridLayoutManager(this, 2));
         adapter = new TopicAdapter(this, filteredList);
         recyclerTopics.setAdapter(adapter);
 
-        // Xử lý sự kiện tìm kiếm realtime với TextWatcher
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Không cần dùng
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 filterTopics(s.toString());
             }
-
             @Override
-            public void afterTextChanged(Editable s) {
-                // Không cần dùng
-            }
+            public void afterTextChanged(Editable s) { }
         });
+    }
+
+    private void reloadTopicListFromDB() {
+        List<String> topicNames = dbHelper.getAllTopics();
+
+        topicList = new ArrayList<>();
+        for (String name : topicNames) {
+            int drawableId = getDrawableForTopic(name);
+            topicList.add(new Topic(name, drawableId));
+        }
+        filteredList = new ArrayList<>(topicList);
+        if (adapter != null) {
+            adapter.updateList(filteredList);
+        }
+    }
+
+    private int getDrawableForTopic(String topicName) {
+        switch (topicName) {
+            case "Địa lý Việt Nam":
+                return R.drawable.vietnam;
+            case "Châu Á":
+                return R.drawable.asia;
+            case "Châu Âu":
+                return R.drawable.europe;
+            case "Châu Mỹ":
+                return R.drawable.america;
+            case "Châu Phi":
+                return R.drawable.africa;
+            default:
+                return R.drawable.default_topic_icon; // icon mặc định
+        }
     }
 
     private void filterTopics(String keyword) {
@@ -149,14 +177,19 @@ public class MainActivity extends AppCompatActivity {
             filteredList.addAll(topicList);
         } else {
             for (Topic topic : topicList) {
-                // Sửa getName() thành getTitle()
                 if (topic.getTitle().toLowerCase().contains(keyword)) {
                     filteredList.add(topic);
                 }
             }
         }
-
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_ADD_QUESTION && resultCode == RESULT_OK) {
+            reloadTopicListFromDB();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

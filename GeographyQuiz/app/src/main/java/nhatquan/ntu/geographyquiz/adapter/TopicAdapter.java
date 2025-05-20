@@ -61,6 +61,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         return topicList.size();
     }
 
+
     public static class TopicViewHolder extends RecyclerView.ViewHolder {
         ImageView imgTopic;
         TextView txtTopic;
