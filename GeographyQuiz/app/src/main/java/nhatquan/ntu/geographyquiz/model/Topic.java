@@ -24,4 +24,12 @@ public class Topic {
     public void setImageResId(int imageResId) {
         this.imageResId = imageResId;
     }
+
+    @Override
+    public String toString() {
+        return "Topic{" +
+                "title='" + title + '\'' +
+                ", imageResId=" + imageResId +
+                '}';
+    }
 }

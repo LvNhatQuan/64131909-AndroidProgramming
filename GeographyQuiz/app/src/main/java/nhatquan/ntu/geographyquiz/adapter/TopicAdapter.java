@@ -27,6 +27,12 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         this.topicList = topicList;
     }
 
+    // Cập nhật danh sách chủ đề mới sau khi lọc
+    public void updateList(List<Topic> newList) {
+        topicList = newList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public TopicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,7 +46,6 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.TopicViewHol
         holder.txtTopic.setText(topic.getTitle());
         holder.imgTopic.setImageResource(topic.getImageResId());
 
-        // Lấy role từ SharedPreferences
         SharedPreferences prefs = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         String role = prefs.getString("role", "guest");
 
