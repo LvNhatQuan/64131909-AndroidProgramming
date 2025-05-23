@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "760996666251",
+    "project_id": "geographyquiz-57ea6",
+    "storage_bucket": "geographyquiz-57ea6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760996666251:android:bf60eef7ec613445d46d8e",
+        "android_client_info": {
+          "package_name": "nhatquan.ntu.geographyquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCumUG5IyXYkwVKA5lnyNBanJabG2YS2h8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

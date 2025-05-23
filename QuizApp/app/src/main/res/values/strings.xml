@@ -1,14 +1,3 @@
 <resources>
     <string name="app_name">QuizApp</string>
-    <string name="navigation_drawer_open">Mở menu</string>
-    <string name="navigation_drawer_close">Đóng menu</string>
-    <string name="prompt_topic">Chọn chủ đề</string>
-    <string name="prompt_subtopic">Chọn tiểu mục</string>
-    <string name="prompt_correct_answer">Chọn đáp án đúng</string>
-    <string-array name="answer_options">
-        <item>A</item>
-        <item>B</item>
-        <item>C</item>
-        <item>D</item>
-    </string-array>
 </resources>

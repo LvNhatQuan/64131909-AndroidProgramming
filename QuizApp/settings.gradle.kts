@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "QuizApp"
 include(":app")
+ 

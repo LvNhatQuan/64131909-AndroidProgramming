@@ -10,28 +10,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Quiz"
+        android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
         <activity
-            android:name=".DeleteQuestionActivity"
+            android:name=".UserActivity"
             android:exported="false" />
         <activity
-            android:name=".SubTopicActivity"
+            android:name=".AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".AddQuestionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".QuizActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" /> <!-- LoginActivity là màn hình khởi đầu -->
-        <activity
-            android:name=".LoginActivity"
+            android:name=".ScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

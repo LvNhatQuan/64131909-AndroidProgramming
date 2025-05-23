@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox; // THÊM
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtUsername, edtPassword, edtEmail;
     Button btnLogin;
     TextView txtRegister;
+    TextView txtForgotPassword;
+    CheckBox checkboxRememberMe; // THÊM
+    SharedPreferences prefs; // THÊM
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,19 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         btnLogin = findViewById(R.id.btnLogin);
         txtRegister = findViewById(R.id.txtRegister);
+        txtForgotPassword = findViewById(R.id.txtForgotPassword);
+        checkboxRememberMe = findViewById(R.id.checkboxRememberMe); // THÊM
+
+        prefs = getSharedPreferences("user_prefs", MODE_PRIVATE); // THÊM
+
+        // TỰ ĐỘNG ĐIỀN nếu đã lưu (Remember Me)
+        boolean isRemembered = prefs.getBoolean("rememberMe", false);
+        if (isRemembered) {
+            edtUsername.setText(prefs.getString("saved_username", ""));
+            edtPassword.setText(prefs.getString("saved_password", ""));
+            edtEmail.setText(prefs.getString("saved_email", ""));
+            checkboxRememberMe.setChecked(true);
+        }
 
         btnLogin.setOnClickListener(v -> {
             String username = edtUsername.getText().toString().trim();
@@ -62,10 +80,34 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
+
+        txtForgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ForgotPasswordActivity.class);
+            startActivity(intent);
+        });
     }
+
     private void saveLogin(String role, String username) {
-        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
-        prefs.edit().putString("role", role).putString("username", username).apply();
+        // Xử lý Remember Me
+        SharedPreferences.Editor editor = prefs.edit();
+        if (checkboxRememberMe.isChecked()) {
+            // Lưu thông tin đăng nhập
+            editor.putBoolean("rememberMe", true);
+            editor.putString("saved_username", edtUsername.getText().toString());
+            editor.putString("saved_password", edtPassword.getText().toString());
+            editor.putString("saved_email", edtEmail.getText().toString());
+        } else {
+            // Xóa thông tin đã lưu
+            editor.remove("rememberMe");
+            editor.remove("saved_username");
+            editor.remove("saved_password");
+            editor.remove("saved_email");
+        }
+        // Luôn lưu role, username cho app
+        editor.putString("role", role);
+        editor.putString("username", username);
+        editor.apply();
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("role", role);
         startActivity(intent);

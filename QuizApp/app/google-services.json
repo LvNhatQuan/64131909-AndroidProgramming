@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "20252617929",
+    "project_id": "quiz-d301d",
+    "storage_bucket": "quiz-d301d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20252617929:android:f36996fdbf91094ce3f118",
+        "android_client_info": {
+          "package_name": "nhatquan.ntu.quizapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfdMTsjeZbZNNsTsrcX7neH8BwltM6yEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

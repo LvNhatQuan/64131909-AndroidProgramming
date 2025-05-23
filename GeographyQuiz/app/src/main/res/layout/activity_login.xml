@@ -87,6 +87,15 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
+        <CheckBox
+            android:id="@+id/checkboxRememberMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhớ mật khẩu"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"/>
+
+
         <!-- Forgot Password Text -->
         <TextView
             android:id="@+id/txtForgotPassword"

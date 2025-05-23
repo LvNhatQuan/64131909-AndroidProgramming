@@ -8,10 +8,9 @@
     app:cardElevation="8dp"
     app:cardBackgroundColor="#FFFFFF">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="0dp">
 
         <ImageView
@@ -21,7 +20,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
             android:background="@drawable/bg_img_topic"
-            android:contentDescription="Ảnh chủ đề"/>
+            android:contentDescription="Ảnh chủ đề" />
 
         <TextView
             android:id="@+id/txtTopic"
@@ -37,6 +36,8 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:maxLines="2"
-            android:ellipsize="end"/>
-    </LinearLayout>
+            android:ellipsize="end"
+            android:layout_below="@id/imgTopic" />
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
