@@ -1,14 +1,12 @@
 package nhatquan.ntu.geographyquiz.model;
 
 public class Question {
-    private int id;  // ID trong SQLite
+    private int id;
     private String topic;
     private String questionText;
     private String[] options;
-    private int correctOption; // Vị trí trong mảng options
-    private String subTopic; // VD: "Khí hậu Việt Nam"
-
-    //Constructor rỗng bắt buộc để dùng setX() sau này
+    private int correctOption;
+    private String subTopic;
     public Question() {
     }
 

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.CheckBox; // THÊM
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView txtRegister;
     TextView txtForgotPassword;
-    CheckBox checkboxRememberMe; // THÊM
-    SharedPreferences prefs; // THÊM
+    CheckBox checkboxRememberMe;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         txtRegister = findViewById(R.id.txtRegister);
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
-        checkboxRememberMe = findViewById(R.id.checkboxRememberMe); // THÊM
+        checkboxRememberMe = findViewById(R.id.checkboxRememberMe);
 
-        prefs = getSharedPreferences("user_prefs", MODE_PRIVATE); // THÊM
+        prefs = getSharedPreferences("user_prefs", MODE_PRIVATE); 
 
-        // TỰ ĐỘNG ĐIỀN nếu đã lưu (Remember Me)
         boolean isRemembered = prefs.getBoolean("rememberMe", false);
         if (isRemembered) {
             edtUsername.setText(prefs.getString("saved_username", ""));

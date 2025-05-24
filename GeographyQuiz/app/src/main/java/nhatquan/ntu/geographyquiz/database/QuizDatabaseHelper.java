@@ -13,13 +13,12 @@ import nhatquan.ntu.geographyquiz.model.Question;
 
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "quiz.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     private final Context context;
 
     public QuizDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context;
-        // Chỉ thêm dữ liệu mẫu khi khởi tạo Helper (sau khi DB đã tạo xong)
         SQLiteDatabase db = getWritableDatabase();
         if (getAllQuestions().isEmpty()) {
             insertSampleQuestions();

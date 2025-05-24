@@ -79,7 +79,7 @@ public class DeleteQuestionActivity extends AppCompatActivity {
         adapter = new DeleteQuestionAdapter(this, itemList, question -> {
             dbHelper.deleteQuestion(question.getId());
             Toast.makeText(this, "Đã xoá câu hỏi", Toast.LENGTH_SHORT).show();
-            loadQuestionsByTopic(topic); // load lại danh sách câu hỏi sau khi xoá
+            loadQuestionsByTopic(topic);
         });
 
         recyclerView.setAdapter(adapter);
