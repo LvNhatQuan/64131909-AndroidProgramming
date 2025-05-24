@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="#FAFAFA"
+    android:background="#1976D2"
     tools:context=".DeleteQuestionActivity">
 
 
