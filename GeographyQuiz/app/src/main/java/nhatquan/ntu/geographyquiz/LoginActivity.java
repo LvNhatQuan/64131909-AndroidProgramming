@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
         checkboxRememberMe = findViewById(R.id.checkboxRememberMe);
 
-        prefs = getSharedPreferences("user_prefs", MODE_PRIVATE); 
+        prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
 
         boolean isRemembered = prefs.getBoolean("rememberMe", false);
         if (isRemembered) {
@@ -55,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
 
             UserManager userManager = new UserManager(this);
 
-            // Kiểm tra thông tin người dùng trong cơ sở dữ liệu
             if (username.equals("admin") && password.equals("admin") && email.equals("admin@gmail.com")) {
                 // Admin mặc định
                 saveLogin("admin", "admin");
@@ -64,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
                 saveLogin("guest", "bao");
             }
 
-            // Kiểm tra với thông tin người dùng đã đăng ký
             else {
                 User user = userManager.getUserByUsername(username);
                 if (user != null && user.getPassword().equals(password) && user.getEmail().equals(email)) {
@@ -87,22 +85,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void saveLogin(String role, String username) {
-        // Xử lý Remember Me
         SharedPreferences.Editor editor = prefs.edit();
         if (checkboxRememberMe.isChecked()) {
-            // Lưu thông tin đăng nhập
             editor.putBoolean("rememberMe", true);
             editor.putString("saved_username", edtUsername.getText().toString());
             editor.putString("saved_password", edtPassword.getText().toString());
             editor.putString("saved_email", edtEmail.getText().toString());
         } else {
-            // Xóa thông tin đã lưu
             editor.remove("rememberMe");
             editor.remove("saved_username");
             editor.remove("saved_password");
             editor.remove("saved_email");
         }
-        // Luôn lưu role, username cho app
         editor.putString("role", role);
         editor.putString("username", username);
         editor.apply();

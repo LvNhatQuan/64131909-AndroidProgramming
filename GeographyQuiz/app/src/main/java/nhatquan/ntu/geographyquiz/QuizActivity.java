@@ -27,7 +27,7 @@ public class QuizActivity extends AppCompatActivity {
     String topic, subtopic;
     QuizDatabaseHelper dbHelper;
     CountDownTimer countDownTimer;
-    int timePerQuestion = 60000; // 60 giây
+    int timePerQuestion = 60000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +65,7 @@ public class QuizActivity extends AppCompatActivity {
             btnC.setText(q.getOptions()[2]);
             btnD.setText(q.getOptions()[3]);
 
-            startTimer(); //  Mỗi lần hiển thị câu mới → bắt đầu đếm lại
+            startTimer();
         } else {
             Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
             intent.putExtra("score", score);

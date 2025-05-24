@@ -13,14 +13,12 @@
         android:padding="32dp"
         android:paddingTop="48dp">
 
-        <!-- Logo Image -->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginBottom="24dp"
             android:src="@drawable/earth2" />
 
-        <!-- Username Input -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -38,7 +36,6 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password Input -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -56,7 +53,6 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Email Input -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -74,7 +70,6 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
@@ -96,7 +91,6 @@
             android:textSize="15sp"/>
 
 
-        <!-- Forgot Password Text -->
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
@@ -108,7 +102,6 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <!-- Register Text -->
         <TextView
             android:id="@+id/txtRegister"
             android:layout_width="wrap_content"
@@ -120,7 +113,6 @@
             android:textColor="#007BFF"
             android:textSize="14sp"
             android:textStyle="bold" />
-        <!-- Social Login -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -129,7 +121,6 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp">
 
-            <!-- Login with Phone -->
             <ImageButton
                 android:id="@+id/btnLoginPhone"
                 android:layout_width="48dp"
@@ -139,7 +130,6 @@
                 android:contentDescription="Đăng nhập bằng SĐT"
                 android:layout_marginEnd="16dp"/>
 
-            <!-- Login with Google -->
             <ImageButton
                 android:id="@+id/btnLoginGoogle"
                 android:layout_width="48dp"
@@ -149,7 +139,6 @@
                 android:contentDescription="Đăng nhập bằng Google"
                 android:layout_marginEnd="16dp"/>
 
-            <!-- Login with Facebook -->
             <ImageButton
                 android:id="@+id/btnLoginFacebook"
                 android:layout_width="48dp"
