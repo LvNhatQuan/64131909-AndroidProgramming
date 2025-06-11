@@ -187,6 +187,33 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         insertQuestion("Miền Nam Việt Nam có mấy mùa rõ rệt?",
                 new String[]{"2 mùa", "3 mùa", "4 mùa", "Không rõ mùa"}, 0,
                 "Địa lý Việt Nam", "Khí hậu");
+        insertQuestion("Gió mùa đông bắc ảnh hưởng rõ rệt nhất ở khu vực nào của Việt Nam?",
+                new String[]{"Miền Trung", "Miền Nam", "Miền Bắc", "Tây Nguyên"}, 2,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Thời tiết mùa hè ở miền Bắc Việt Nam thường như thế nào?",
+                new String[]{"Nóng và khô", "Mát mẻ", "Nóng ẩm, mưa nhiều", "Lạnh và khô"}, 2,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Hiện tượng El Nino gây ra điều gì ở Việt Nam?",
+                new String[]{"Mưa nhiều", "Nhiệt độ thấp", "Khô hạn kéo dài", "Mùa đông kéo dài"}, 2,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Tây Nguyên có kiểu khí hậu nào đặc trưng?",
+                new String[]{"Nhiệt đới khô", "Ôn đới", "Nhiệt đới gió mùa", "Nhiệt đới ẩm có mùa khô"}, 3,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Lượng mưa trung bình năm của Việt Nam dao động khoảng bao nhiêu?",
+                new String[]{"500–800 mm", "1000–2000 mm", "2000–3000 mm", "Trên 4000 mm"}, 1,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Khu vực nào ở Việt Nam chịu ảnh hưởng mạnh của gió Tây khô nóng?",
+                new String[]{"Miền Bắc", "Bắc Trung Bộ", "Tây Bắc", "Nam Bộ"}, 1,
+                "Địa lý Việt Nam", "Khí hậu");
+
+        insertQuestion("Mùa mưa ở Nam Bộ Việt Nam thường bắt đầu từ tháng mấy?",
+                new String[]{"Tháng 1", "Tháng 3", "Tháng 5", "Tháng 11"}, 2,
+                "Địa lý Việt Nam", "Khí hậu");
 
         // Kinh tế
         insertQuestion("Vùng nào phát triển công nghiệp mạnh nhất ở nước ta?",
