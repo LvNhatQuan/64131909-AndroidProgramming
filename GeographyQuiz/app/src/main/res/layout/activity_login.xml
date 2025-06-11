@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="#FFF8E1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            app:hintTextColor="@color/green"
             android:hint="Tên tài khoản">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:paddingStart="16dp"
+                android:textColor="#2E7D32"
                 android:paddingEnd="16dp"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -41,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            app:hintTextColor="@color/green"
             android:hint="Mật khẩu">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -50,6 +53,7 @@
                 android:inputType="textPassword"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:textColor="#2E7D32"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            app:hintTextColor="@color/green"
             android:hint="Email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -67,6 +72,7 @@
                 android:inputType="textEmailAddress"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:textColor="#2E7D32"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
